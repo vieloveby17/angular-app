@@ -1,0 +1,90 @@
+<div class="container">
+  <p>
+    <a
+      class="btn btn-dark"
+      data-toggle="collapse"
+      href="#addusers"
+      role="button"
+      aria-expanded="false"
+      aria-controls="addusers"
+    >
+      Add User
+    </a>
+  </p>
+  <div class="collapse w-100 mb-4" id="addusers">
+    <div class="card card-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Fist Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="InputName"
+            aria-describedby="emailHelp"
+            placeholder="Enter First"
+          />
+        </div>
+        <div class="form-group">
+          <label for="InputLast">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="InputLast"
+            placeholder="Enter Last Name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="InputEmail">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="InputEmail"
+            placeholder="Enter Email"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Add New User
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="accordion" class="w-100">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button
+            class="btn"
+            data-toggle="collapse"
+            data-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <h3 class="mb-0 text-dark">John Carter</h3>
+          </button>
+        </h5>
+      </div>
+
+      <div
+        id="collapseOne"
+        class="collapse show"
+        aria-labelledby="headingOne"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>Email: john@gmail.com</td>
+              </tr>
+              <tr>
+                <td>Joined: Jan 2, 2018</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

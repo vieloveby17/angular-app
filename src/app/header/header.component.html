@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">Angular App</a>
+    </div>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#collapsibleNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <div class="mx-auto"></div>
+      <ul class="navbar-nav">
+        <li routerLinkActive="active">
+          <a class="nav-link" routerLink="/home" href="#">Home</a>
+        </li>
+        <li routerLinkActive="active">
+          <a class="nav-link" routerLink="/users" (click)="onSelect('users')"
+            >Users</a
+          >
+        </li>
+        <li routerLinkActive="active">
+          <a class="nav-link" routerLink="/posts" (click)="onSelect('posts')"
+            >Posts</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br />
