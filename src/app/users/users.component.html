@@ -7,13 +7,16 @@
       role="button"
       aria-expanded="false"
       aria-controls="addusers"
+      (click)="AddUser()"
     >
       Add User
     </a>
   </p>
+
+
   <div class="collapse w-100 mb-4" id="addusers">
     <div class="card card-body">
-      <form>
+      <form (ngSubmit)="SaveUser()" [formGroup]="userForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Fist Name</label>
           <input
@@ -22,6 +25,7 @@
             id="InputName"
             aria-describedby="emailHelp"
             placeholder="Enter First"
+            formControlName="firstName"
           />
         </div>
         <div class="form-group">
@@ -31,6 +35,7 @@
             class="form-control"
             id="InputLast"
             placeholder="Enter Last Name"
+            formControlName="lastName"
           />
         </div>
         <div class="form-group">
@@ -40,6 +45,7 @@
             class="form-control"
             id="InputEmail"
             placeholder="Enter Email"
+            formControlName="email"
           />
         </div>
 
@@ -50,16 +56,54 @@
     </div>
   </div>
 
-  <div id="accordion" class="w-100">
+  <div id="accordion" class="w-100" *ngFor="let item of data" >
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button
+           class="btn"
+           data-toggle="#collapseOne"
+           data-target="#"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <h3 class="mb-0 text-dark">{{item.firstName + " " + item.lastName}}</h3>
+          </button>
+        </h5>
+      </div>
+      <!--  -->
+      <div
+        [id]="collapseOne"
+        class="collapse show"
+        aria-labelledby="headingOne"
+        data-parent="#accordion"
+      >
+        <div class="card-body">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td>Email: {{item.email}}</td>
+              </tr>
+              <tr>
+                <td>Joined: {{item.date | date:'longDate'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div id="accordion" class="w-100">
     <div class="card">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <button
             class="btn"
             data-toggle="collapse"
-            data-target="#collapseOne"
+            data-target="#collapseTwo"
             aria-expanded="true"
-            aria-controls="collapseOne"
+            aria-controls="collapseTwo"
           >
             <h3 class="mb-0 text-dark">John Carter</h3>
           </button>
@@ -67,9 +111,9 @@
       </div>
 
       <div
-        id="collapseOne"
+        id="collapseTwo"
         class="collapse show"
-        aria-labelledby="headingOne"
+        aria-labelledby="headingTwo"
         data-parent="#accordion"
       >
         <div class="card-body">
@@ -86,5 +130,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>

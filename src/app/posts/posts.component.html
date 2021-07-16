@@ -2,22 +2,44 @@
   <h2>Add Post</h2>
   <div class="card w-100">
     <div class="card-body">
-      <form>
+      <form (ngSubmit)="Post()" [formGroup]="postForm">
         <div class="form-group">
           <label for="exampleInputEmail1">Title</label>
-          <input type="text" class="form-control" id="InputTitle" />
+          <input type="text" class="form-control" id="InputTitle" formControlName="title" />
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Body</label>
-          <input type="text" class="form-control" id="InputBody" />
+          <input type="text" class="form-control" id="InputBody" formControlName="body" />
         </div>
-        <button type="submit" class="btn btn-dark w-100">Add Post</button>
+        <button type="submit" class="btn btn-dark w-100" [ngClass]="isEdit ? 'bg-warning' : 'bg-dark'">{{isEdit ? 'Update Post' : 'Add Post'}}</button>
       </form>
     </div>
   </div>
 </div>
 <div class="container">
   <h2>Posts</h2>
+  <div class="card w-100" *ngFor="let item of data; let i = index;">
+    <div class="card-body">
+      <div class="card-title">
+        <h3>
+          <a href="#">{{item.title}}</a
+          >
+        </h3>
+      </div>
+      <p class="card-text">
+        {{item.body}}
+      </p>
+      <hr />
+      <button class="btn btn-danger btn-sm mr-2">
+        <i class="fas fa-times" (click)="delete(item)"></i>
+      </button>
+      <button class="btn btn-warning btn-sm mr-auto">
+        <i class="fas fa-pen" (click)="edit(item,i)"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- <h2>Posts</h2>
   <div class="card w-100">
     <div class="card-body">
       <div class="card-title">
@@ -40,5 +62,5 @@
         <i class="fas fa-pen"></i>
       </button>
     </div>
-  </div>
+  </div> -->
 </div>
